@@ -25,6 +25,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Svelte teste - CEP</title>
+</svelte:head>
+
 <h1 class="text-3xl">
   {data.title}
 
