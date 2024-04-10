@@ -5,6 +5,7 @@
   const routes = [
     { path: "cep", name: "CEP" },
     { path: "paises", name: "Países" },
+    { path: "not-fount", name: "Not found" },
   ];
 </script>
 
