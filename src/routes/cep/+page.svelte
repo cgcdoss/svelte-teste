@@ -1,9 +1,9 @@
 <script lang="ts">
   import { loading } from "$lib/store";
-  import type { PageData } from "../$types";
+  import type { load } from "./+page";
   import Address from "./address.svelte";
 
-  export let data: PageData;
+  export let data: Awaited<ReturnType<typeof load>>; // Deveria ser apenas PageData, mas está dando erro
   let cep: number | undefined = undefined;
   let address: TAddress | undefined = undefined;
 
