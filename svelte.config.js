@@ -1,4 +1,12 @@
-import adapter from "@sveltejs/adapter-auto";
+// Não serve para nada
+// import adapter from "@sveltejs/adapter-auto";
+
+// Para utilizar o SSR
+// import adapter from "@sveltejs/adapter-node";
+
+// Para utilizar conteúdo estático
+import adapter from "@sveltejs/adapter-static";
+
 import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 
 /** @type {import('@sveltejs/kit').Config} */

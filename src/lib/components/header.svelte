@@ -4,8 +4,8 @@
   $: currentUrl = $page.url.pathname;
   const routes = [
     { path: "cep", name: "CEP" },
-    { path: "paises", name: "Países" },
-    { path: "not-fount", name: "Not found" },
+    /* { path: "paises", name: "Países" },
+    { path: "not-fount", name: "Not found" }, */
   ];
 </script>
 
@@ -16,7 +16,7 @@
         <a
           href={route.path}
           class="text-white hover:bg-primary-700 px-4 py-2 transition-all"
-          class:!bg-primary-500={currentUrl.includes(route.path)}
+          class:bg-primary-500={currentUrl.includes(route.path)}
         >
           {route.name}
         </a>
