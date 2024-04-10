@@ -1,7 +1,9 @@
 <script lang="ts">
   import { loading } from "$lib/store";
+  import type { PageData } from "../$types";
   import Address from "./address.svelte";
 
+  export let data: PageData;
   let cep: number | undefined = undefined;
   let address: TAddress | undefined = undefined;
 
@@ -24,7 +26,8 @@
 </script>
 
 <h1 class="text-3xl">
-  Encontrar CEP
+  {data.title}
+
   {#if cep}
     - {cep}
   {/if}
