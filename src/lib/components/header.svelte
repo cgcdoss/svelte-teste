@@ -1,7 +1,10 @@
 <script lang="ts">
+  import { base } from "$app/paths";
   import { page } from "$app/stores";
 
-  $: currentUrl = $page.url.pathname.replaceAll("/", "");
+  $: currentUrl = $page.url.pathname
+    .replace("/svelte-teste", "")
+    .replaceAll("/", "");
   const routes = [
     { path: "", name: "Home" },
     { path: "cep", name: "CEP" },
@@ -15,7 +18,7 @@
     {#each routes as route}
       <li>
         <a
-          href="/{route.path}"
+          href="{base}/{route.path}"
           class="text-white hover:bg-primary-700 px-4 py-2 transition-all"
           class:bg-primary-500={currentUrl === route.path}
         >
