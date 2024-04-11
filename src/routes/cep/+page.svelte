@@ -64,6 +64,7 @@
   bind:value={cep}
   on:input={findCEP}
   maxlength="8"
+  inputmode="numeric"
 />
 
 <Address {address} />
