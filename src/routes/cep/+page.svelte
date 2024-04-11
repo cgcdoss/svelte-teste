@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { loading } from "$lib/store";
+  import { error, loading } from "$lib/store";
   import type { load } from "./+page";
   import Address from "./address.svelte";
 
@@ -14,6 +14,17 @@
       try {
         const resp = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
         const json = await resp.json();
+
+        if (!resp.ok) {
+          error.set("Falha na comunicação com o servidor");
+          return;
+        }
+
+        if (json.erro) {
+          error.set("CEP inválido");
+          return;
+        }
+
         address = json;
       } catch (error) {
       } finally {
