@@ -1,6 +1,6 @@
 <script lang="ts">
   import { error, loading } from "$lib/store";
-  import { onMount } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   import type { load } from "./+page";
   import Address from "./address.svelte";
 
@@ -8,7 +8,13 @@
   let cep: number | undefined = undefined;
   let address: TAddress | undefined = undefined;
 
-  onMount(() => console.log("Igual OnInit"));
+  onMount(() => {
+    // Igual OnInit
+  });
+
+  onDestroy(() => {
+    // Igual OnDestroy
+  });
 
   async function findCEP() {
     if (cep?.toString().length === 8) {

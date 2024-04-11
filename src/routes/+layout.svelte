@@ -36,6 +36,6 @@
 
 <Header />
 
-<main class="container mx-auto mt-6">
+<main class="container mx-auto px-8 mt-6">
   <slot />
 </main>

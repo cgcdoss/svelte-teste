@@ -14,7 +14,7 @@
 </script>
 
 <nav class="bg-primary-950 w-full">
-  <ul class="container mx-auto py-4 flex gap-4">
+  <ul class="container mx-auto px-8 py-4 flex gap-4">
     {#each routes as route}
       <li>
         <a
