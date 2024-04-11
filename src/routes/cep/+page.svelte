@@ -1,11 +1,14 @@
 <script lang="ts">
   import { error, loading } from "$lib/store";
+  import { onMount } from "svelte";
   import type { load } from "./+page";
   import Address from "./address.svelte";
 
   export let data: Awaited<ReturnType<typeof load>>; // Deveria ser apenas PageData, mas está dando erro
   let cep: number | undefined = undefined;
   let address: TAddress | undefined = undefined;
+
+  onMount(() => console.log("Igual OnInit"));
 
   async function findCEP() {
     if (cep?.toString().length === 8) {
