@@ -60,7 +60,7 @@
 <input
   type="text"
   placeholder="CEP"
-  class="mt-4 px-4 py-2 border focus:border-primary-400 outline-none"
+  class="mt-4 focus:border-primary-400"
   bind:value={cep}
   on:input={findCEP}
   maxlength="8"
