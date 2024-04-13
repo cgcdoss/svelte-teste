@@ -1,7 +1,7 @@
 <script lang="ts">
   import { browser } from "$app/environment";
   import Header from "$lib/components/header.svelte";
-  import { error, loading } from "$lib/store";
+  import { error, isMobile, loading } from "$lib/store";
   import "../app.pcss";
 
   // Interceptando requisições via window.fetch
@@ -23,6 +23,11 @@
       return response;
     };
   }
+
+  // Mudando store quando matchMedia mudar
+  matchMedia("(max-width: 425px)").addEventListener("change", (ev) =>
+    isMobile.set(ev.matches)
+  );
 </script>
 
 {#if $error}

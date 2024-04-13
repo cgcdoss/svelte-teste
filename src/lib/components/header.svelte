@@ -1,7 +1,7 @@
 <script lang="ts">
   import { base } from "$app/paths";
   import { page } from "$app/stores";
-  import SvelteLogo from "$lib/imgs/svelteLogo.svelte";
+  import { isMobile } from "$lib/store";
   import { onMount } from "svelte";
 
   const pageSvelteFiles = import.meta.glob("../../routes/**/+page.svelte");
@@ -21,12 +21,6 @@
   }));
 
   let showItems = false;
-  let isMobile = matchMedia("(max-width: 425px)").matches;
-
-  onMount(() => {
-    matchMedia("(max-width: 425px)").onchange = (resp) =>
-      (isMobile = resp.matches);
-  });
 </script>
 
 <nav class="bg-primary-950 w-full">
@@ -63,7 +57,7 @@
         class="h-[40px]"
       />
 
-      {#if isMobile}
+      {#if $isMobile}
         <h1 class="text-xl text-white py-1">Svelte testes</h1>
       {/if}
     </div>
