@@ -2,15 +2,21 @@
   import { base } from "$app/paths";
   import { page } from "$app/stores";
 
+  const pageSvelteFiles = import.meta.glob("../../routes/**/+page.svelte");
+  const pages = Object.keys(pageSvelteFiles).map((item) =>
+    item
+      .replace("../../routes/", "")
+      .replace("+page.svelte", "")
+      .replace("/", "")
+  );
+
   $: currentUrl = $page.url.pathname
     .replace("/svelte-teste", "")
     .replaceAll("/", "");
-  const routes = [
-    { path: "", name: "Home" },
-    { path: "cep", name: "CEP" },
-    /* { path: "paises", name: "Países" },
-    { path: "not-fount", name: "Not found" }, */
-  ];
+  const routes = pages.map((m) => ({
+    path: m,
+    name: m === "" ? "Home" : m.substring(0, 1).toUpperCase() + m.substring(1),
+  }));
 </script>
 
 <nav class="bg-primary-950 w-full">
