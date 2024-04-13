@@ -26,7 +26,10 @@
     class="flex container mx-auto px-8 py-4 gap-4"
     class:flex-col={showItems}
   >
-    <button class="block md:hidden" on:click={() => (showItems = !showItems)}>
+    <button
+      class="block md:hidden ml-2"
+      on:click={() => (showItems = !showItems)}
+    >
       <svg
         class="w-5 h-5"
         aria-hidden="true"
