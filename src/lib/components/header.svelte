@@ -44,13 +44,12 @@
       </svg>
     </button>
     <ul
-      class="hidden md:flex"
+      class="hidden md:flex gap-2"
       class:!flex={showItems}
       class:flex-col={showItems}
-      class:gap-4={showItems}
     >
       {#each routes as route}
-        <li>
+        <li class="py-2">
           <a
             href="{base}/{route.path}"
             class="text-white hover:bg-primary-700 px-4 py-2 transition-all"
