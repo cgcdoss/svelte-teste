@@ -7,6 +7,10 @@
   let cor = "#FF0000";
 </script>
 
+<svelte:head>
+  <title>Svelte teste - Imagens</title>
+</svelte:head>
+
 <h1>Imagem da internet</h1>
 <img
   src="https://thispersondoesnotexist.com/"

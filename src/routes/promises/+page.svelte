@@ -33,6 +33,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Svelte teste - Promises</title>
+</svelte:head>
+
 <h1 class="font-bold text-2xl my-4">Usando bloco await do Svelte</h1>
 
 <button
