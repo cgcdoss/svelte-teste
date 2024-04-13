@@ -2,6 +2,7 @@
   import { browser } from "$app/environment";
   import Header from "$lib/components/header.svelte";
   import { error, isMobile, loading } from "$lib/store";
+  import { onMount } from "svelte";
   import "../app.pcss";
 
   // Interceptando requisições via window.fetch
@@ -23,11 +24,6 @@
       return response;
     };
   }
-
-  // Mudando store quando matchMedia mudar
-  matchMedia("(max-width: 425px)").addEventListener("change", (ev) =>
-    isMobile.set(ev.matches)
-  );
 </script>
 
 {#if $error}
