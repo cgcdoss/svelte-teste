@@ -1,7 +1,28 @@
-<script>
+<script lang="ts">
+  import { browser } from "$app/environment";
   import Header from "$lib/components/header.svelte";
   import { error, loading } from "$lib/store";
   import "../app.pcss";
+
+  // Interceptando requisições via window.fetch
+  if (browser) {
+    const originalFetch = window.fetch;
+    window.fetch = async (
+      input: RequestInfo | URL,
+      config: RequestInit | undefined,
+      skipLoading = false
+    ) => {
+      // request interceptor here
+      if (!skipLoading) loading.set(true);
+
+      const response = await originalFetch(input, config);
+
+      // response interceptor here
+      if (!skipLoading) loading.set(false);
+
+      return response;
+    };
+  }
 </script>
 
 {#if $error}

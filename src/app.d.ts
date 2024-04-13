@@ -8,6 +8,12 @@ declare global {
 		// interface PageState {}
 		// interface Platform {}
 	}
+
+	interface Window {
+		fetch: (input: RequestInfo | URL, init?: RequestInit | undefined, skipLoading?: boolean) => Promise<Response>;
+	}
+
+	function fetch(input: RequestInfo | URL, init?: RequestInit | undefined, skipLoading?: boolean): Promise<Response>;
 }
 
-export {};
+export { };
