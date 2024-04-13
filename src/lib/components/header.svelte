@@ -1,6 +1,8 @@
 <script lang="ts">
   import { base } from "$app/paths";
   import { page } from "$app/stores";
+  import SvelteLogo from "$lib/imgs/svelteLogo.svelte";
+  import { onMount } from "svelte";
 
   const pageSvelteFiles = import.meta.glob("../../routes/**/+page.svelte");
   const pages = Object.keys(pageSvelteFiles).map((item) =>
@@ -19,6 +21,12 @@
   }));
 
   let showItems = false;
+  let isMobile = matchMedia("(max-width: 425px)").matches;
+
+  onMount(() => {
+    matchMedia("(max-width: 425px)").onchange = (resp) =>
+      (isMobile = resp.matches);
+  });
 </script>
 
 <nav class="bg-primary-950 w-full">
@@ -26,26 +34,40 @@
     class="flex container mx-auto px-8 py-4 gap-4"
     class:flex-col={showItems}
   >
-    <button
-      class="block md:hidden ml-2"
-      on:click={() => (showItems = !showItems)}
-    >
-      <svg
-        class="w-5 h-5"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 17 14"
+    <div class="flex gap-4">
+      <button
+        class="block md:hidden ml-2"
+        on:click={() => (showItems = !showItems)}
       >
-        <path
-          stroke="#fff"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M1 1h15M1 7h15M1 13h15"
-        />
-      </svg>
-    </button>
+        <svg
+          class="w-5 h-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 17 14"
+        >
+          <path
+            stroke="#fff"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M1 1h15M1 7h15M1 13h15"
+          />
+        </svg>
+      </button>
+
+      <!-- Logo Svelte -->
+      <img
+        src="https://api.iconify.design/vscode-icons:file-type-svelte.svg"
+        alt="svelte logo"
+        class="h-[40px]"
+      />
+
+      {#if isMobile}
+        <h1 class="text-xl text-white py-1">Svelte testes</h1>
+      {/if}
+    </div>
+
     <ul
       class="hidden md:flex gap-2"
       class:!flex={showItems}
