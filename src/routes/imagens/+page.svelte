@@ -19,7 +19,11 @@
 />
 
 <h1>Imagem da pasta static</h1>
-<img src={base + "/imgs/doguinho.avif"} alt="doguinho" class="h-[200px]" />
+<img
+  src={base + "/imgs/doguinho.avif"}
+  alt="doguinho"
+  class="h-[200px] max-w-full object-cover"
+/>
 
 <h1>Imagem da pasta lib</h1>
 <img src={imageUrso} alt="urso" class="h-[200px]" />
