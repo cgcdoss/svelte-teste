@@ -10,14 +10,14 @@
     getNewUserAsync();
   });
 
-  function getUser() {
-    return fetch("https://randomuser.me/api/");
+  function getUser(skipLoading = false) {
+    return fetch("https://randomuser.me/api/", undefined, skipLoading);
   }
 
   async function getNewUserAsync() {
     try {
       loading = true;
-      const response = await getUser();
+      const response = await getUser(true);
 
       if (response.ok) {
         const json = await response.json();
@@ -68,7 +68,10 @@
 
 <hr />
 
-<h1 class="font-bold text-2xl my-4">Usando async/await nativo do JS:</h1>
+<h1 class="font-bold text-2xl my-4">
+  Usando async/await nativo do JS:
+  <p class="inline-block text-sm">(Sem loading global)</p>
+</h1>
 
 <button
   class="bg-primary-700 text-white p-2 hover:bg-primary-500 mb-4"
