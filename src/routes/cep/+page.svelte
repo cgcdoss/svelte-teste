@@ -1,6 +1,7 @@
 <script lang="ts">
   import { error, loading } from "$lib/store";
   import { onDestroy, onMount } from "svelte";
+  import { fly, type FlyParams } from "svelte/transition";
   import type { load } from "./+page";
   import Address from "./address.svelte";
 
@@ -43,6 +44,10 @@
       address = undefined;
     }
   }
+
+  const flyOptions: FlyParams = {
+    y: 200,
+  };
 </script>
 
 <svelte:head>
@@ -67,4 +72,8 @@
   inputmode="numeric"
 />
 
-<Address {address} />
+{#if address}
+  <div in:fly={flyOptions}>
+    <Address {address} />
+  </div>
+{/if}

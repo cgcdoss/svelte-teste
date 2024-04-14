@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { fly } from "svelte/transition";
 
   let userPromise: Promise<Response>;
 
@@ -54,7 +55,7 @@
     {:then resp}
       {#if resp.ok}
         {#await resp.json() then json}
-          <div>
+          <div in:fly={{ y: 250 }}>
             <img src={json.results[0].picture.medium} alt="Usuario" />
             {json.results[0].name.first}
             {json.results[0].name.last}
@@ -86,7 +87,7 @@
     <h2 class="font-bold text-xl">Carregando...</h2>
   </div>
 {:else}
-  <div>
+  <div in:fly={{ y: -250 }}>
     <img src={user.results[0].picture.medium} alt="Usuario" />
     {user.results[0].name.first}
     {user.results[0].name.last}
