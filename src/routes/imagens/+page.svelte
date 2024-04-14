@@ -3,6 +3,7 @@
   import imageUrso from "$lib/imgs/header-tess-ai-urso-1.webp";
   import IconHome from "$lib/imgs/iconHome.svelte";
   import SvelteLogo from "$lib/imgs/svelteLogo.svelte";
+  import { fade, fly } from "svelte/transition";
 
   let cor = "#FF0000";
 </script>
@@ -16,6 +17,7 @@
   src="https://thispersondoesnotexist.com/"
   alt="pessoa não existe"
   class="h-[200px]"
+  in:fly={{ x: 100, delay: 250 }}
 />
 
 <h1>Imagem da pasta static</h1>
@@ -23,6 +25,7 @@
   src={base + "/imgs/doguinho.avif"}
   alt="doguinho"
   class="h-[200px] max-w-full object-cover"
+  in:fly={{ x: 100, delay: 600 }}
 />
 
 <h1>Imagem da pasta lib</h1>
