@@ -3,7 +3,7 @@
   import imageUrso from "$lib/imgs/header-tess-ai-urso-1.webp";
   import IconHome from "$lib/imgs/iconHome.svelte";
   import SvelteLogo from "$lib/imgs/svelteLogo.svelte";
-  import { fade, fly } from "svelte/transition";
+  import { fly } from "svelte/transition";
 
   let cor = "#FF0000";
 </script>

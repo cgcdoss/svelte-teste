@@ -29,6 +29,10 @@
   }
 </script>
 
+<svelte:head>
+  <meta name="theme-color" content="#356169" />
+</svelte:head>
+
 <Header />
 <Error />
 <Loading />
