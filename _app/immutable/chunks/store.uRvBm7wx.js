@@ -1,1 +1,0 @@
-import{w as e}from"./index.ByFXR9cR.js";const o=e(!1),c=e(""),s=e(!1);{const a=matchMedia("(max-width: 425px)");s.set(a.matches),a.addEventListener("change",t=>s.set(t.matches))}export{c as e,s as i,o as l};
