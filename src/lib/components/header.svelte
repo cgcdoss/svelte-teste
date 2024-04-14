@@ -30,6 +30,14 @@
     const itemsHeight = routes.length * 46;
     return itemsHeight + initialHeight + gapColumn;
   }
+
+  function collapseMenuWhenItemClicked(elem: HTMLLIElement) {
+    elem.addEventListener("click", () => {
+      if ($isMobile) {
+        showItems = false;
+      }
+    });
+  }
 </script>
 
 <header>
@@ -78,7 +86,7 @@
         class:flex-col={showItems}
       >
         {#each routes as route}
-          <li class="py-2">
+          <li class="py-2" use:collapseMenuWhenItemClicked>
             <a
               href="{base}/{route.path}"
               class="text-white hover:bg-primary-700 px-4 py-2 transition-all"
