@@ -1,12 +1,13 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  let userPromise = getUser();
+  let userPromise: Promise<Response>;
 
   let user: any;
   let loading = false;
 
   onMount(() => {
+    userPromise = getUser();
     getNewUserAsync();
   });
 
@@ -45,25 +46,27 @@
 >
 
 <div class="mb-3">
-  {#await userPromise}
-    <div class="animate-bounce">
-      <h1 class="font-bold text-xl">Carregando...</h1>
-    </div>
-  {:then resp}
-    {#if resp.ok}
-      {#await resp.json() then json}
-        <div>
-          <img src={json.results[0].picture.medium} alt="Usuario" />
-          {json.results[0].name.first}
-          {json.results[0].name.last}
-        </div>
-      {/await}
-    {:else}
+  {#if userPromise}
+    {#await userPromise}
+      <div class="animate-bounce">
+        <h1 class="font-bold text-xl">Carregando...</h1>
+      </div>
+    {:then resp}
+      {#if resp.ok}
+        {#await resp.json() then json}
+          <div>
+            <img src={json.results[0].picture.medium} alt="Usuario" />
+            {json.results[0].name.first}
+            {json.results[0].name.last}
+          </div>
+        {/await}
+      {:else}
+        <div>Erro ao obter usuário</div>
+      {/if}
+    {:catch}
       <div>Erro ao obter usuário</div>
-    {/if}
-  {:catch}
-    <div>Erro ao obter usuário</div>
-  {/await}
+    {/await}
+  {/if}
 </div>
 
 <hr />
