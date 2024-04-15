@@ -19,6 +19,7 @@
 
   async function findCEP() {
     if (cep?.toString().length === 8) {
+      error.set("");
       loading.set(true);
 
       try {
@@ -42,6 +43,7 @@
       }
     } else {
       address = undefined;
+      error.set("");
     }
   }
 
