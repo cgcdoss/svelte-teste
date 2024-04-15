@@ -88,10 +88,10 @@
         class:flex-col={showItems}
       >
         {#each routes as route}
-          <li class="py-2" use:collapseMenuWhenItemClicked>
+          <li use:collapseMenuWhenItemClicked>
             <a
               href="{base}/{route.path}"
-              class="text-white hover:bg-primary-700 px-4 py-2 transition-all"
+              class="block w-full text-white hover:bg-primary-700 px-4 py-2 transition-all"
               class:bg-primary-500={currentUrl === route.path}
             >
               {route.name}

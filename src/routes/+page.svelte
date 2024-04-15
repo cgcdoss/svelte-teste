@@ -31,8 +31,8 @@
 
 <hr class="my-4" />
 
-<div class="space-x-2">
-  <label for="localStorage">Texto no localStorage:</label>
+<label for="localStorage">Texto no localStorage:</label>
+<div>
   <input
     type="text"
     id="localStorage"
@@ -40,5 +40,5 @@
     bind:value={texto}
     on:change={saveInLocalStorage}
   />
-  <sub>Recarregue a página para obter o valor atual</sub>
 </div>
+<sup>Recarregue a página para obter o valor atual</sup>
