@@ -5,6 +5,7 @@ export const loading = writable(false);
 export const error = writable('');
 export const isMobile = writable(false);
 
+// browser não é mais necessário devido ao ssr=false
 if (browser) {
   const matchedMedia = matchMedia("(max-width: 425px)");
   isMobile.set(matchedMedia.matches);

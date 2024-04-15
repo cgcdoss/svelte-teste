@@ -8,6 +8,7 @@
   import { fly } from "svelte/transition";
   import "../app.pcss";
 
+  // browser não é mais necessário devido ao ssr=false
   // Interceptando requisições via window.fetch
   if (browser) {
     const originalFetch = window.fetch;
