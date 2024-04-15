@@ -37,7 +37,6 @@
         }
 
         address = json;
-      } catch (error) {
       } finally {
         loading.set(false);
       }

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { error, isMobile, loading } from "$lib/store";
+  import { loading } from "$lib/store";
 </script>
 
 {#if $loading}

@@ -4,7 +4,12 @@
 
   let userPromise: Promise<Response>;
 
-  let user: any;
+  let user: {
+    results: {
+      picture: { medium: string };
+      name: { first: string; last: string };
+    }[];
+  };
   let loading = false;
 
   onMount(() => {
