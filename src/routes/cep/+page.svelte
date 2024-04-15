@@ -2,10 +2,10 @@
   import { error, loading } from "$lib/store";
   import { onDestroy, onMount } from "svelte";
   import { fly, type FlyParams } from "svelte/transition";
-  import type { load } from "./+page";
+  import type { PageData } from "./$types";
   import Address from "./address.svelte";
 
-  export let data: Awaited<ReturnType<typeof load>>; // Deveria ser apenas PageData, mas está dando erro
+  export let data: PageData; // Deveria ser apenas PageData, mas está dando erro
   let cep: number | undefined = undefined;
   let address: TAddress | undefined = undefined;
 

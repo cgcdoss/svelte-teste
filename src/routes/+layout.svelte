@@ -7,6 +7,9 @@
   import { loading } from "$lib/store";
   import { fly } from "svelte/transition";
   import "../app.pcss";
+  import type { LayoutData } from "./$types";
+
+  export let data: LayoutData;
 
   // browser não é mais necessário devido ao ssr=false
   // Interceptando requisições via window.fetch
@@ -34,7 +37,7 @@
   <meta name="theme-color" content="#356169" />
 </svelte:head>
 
-<Header />
+<Header title={data.titleApplication} />
 <Error />
 <Loading />
 

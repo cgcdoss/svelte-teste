@@ -24,6 +24,8 @@
   const height = spring(72, { stiffness: 0.1, damping: 0.27 });
   $: height.set(showItems ? ulHeight() : 72);
 
+  export let title: string;
+
   function ulHeight() {
     const initialHeight = 72;
     const gapColumn = 16;
@@ -76,7 +78,7 @@
         />
 
         {#if $isMobile}
-          <h1 class="text-xl text-white py-1">Svelte testes</h1>
+          <h1 class="text-xl text-white py-1">{title}</h1>
         {/if}
       </div>
 
