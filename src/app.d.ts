@@ -9,11 +9,10 @@ declare global {
 		// interface Platform {}
 	}
 
-	interface Window {
-		fetch: (input: RequestInfo | URL, init?: RequestInit | undefined, skipLoading?: boolean) => Promise<Response>;
+	interface RequestInit {
+		skipLoading?: boolean;
 	}
 
-	function fetch(input: RequestInfo | URL, init?: RequestInit | undefined, skipLoading?: boolean): Promise<Response>;
 }
 
 export { };

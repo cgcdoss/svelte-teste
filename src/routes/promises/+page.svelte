@@ -18,7 +18,7 @@
   });
 
   function getUser(skipLoading = false) {
-    return fetch("https://randomuser.me/api/", undefined, skipLoading);
+    return fetch("https://randomuser.me/api/", { skipLoading });
   }
 
   async function getNewUserAsync() {
