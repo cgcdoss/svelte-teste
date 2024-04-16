@@ -47,7 +47,7 @@
 <h1 class="font-bold text-2xl my-4">Usando bloco await do Svelte</h1>
 
 <button
-  class="bg-primary-700 text-white p-2 hover:bg-primary-500 mb-4"
+  class="bg-primary-500 text-white p-2 hover:bg-primary-700 mb-4"
   on:click={() => (userPromise = getUser())}>Novo usuário</button
 >
 
@@ -83,7 +83,7 @@
 </h1>
 
 <button
-  class="bg-primary-700 text-white p-2 hover:bg-primary-500 mb-4"
+  class="bg-primary-500 text-white p-2 hover:bg-primary-700 mb-4"
   on:click={getNewUserAsync}>Novo usuário</button
 >
 
