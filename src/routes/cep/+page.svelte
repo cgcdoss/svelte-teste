@@ -1,6 +1,5 @@
 <script lang="ts">
   import { error, loading } from "$lib/store";
-  import { onDestroy, onMount } from "svelte";
   import { fly, type FlyParams } from "svelte/transition";
   import type { PageData } from "./$types";
   import Address from "./address.svelte";
@@ -8,14 +7,6 @@
   export let data: PageData; // Deveria ser apenas PageData, mas está dando erro
   let cep: number | undefined = undefined;
   let address: TAddress | undefined = undefined;
-
-  onMount(() => {
-    // Igual OnInit
-  });
-
-  onDestroy(() => {
-    // Igual OnDestroy
-  });
 
   async function findCEP() {
     if (cep?.toString().length === 8) {
