@@ -17,7 +17,10 @@
     .replaceAll("/", "");
   const routes = pages.map((m) => ({
     path: m,
-    name: m === "" ? "Home" : m.substring(0, 1).toUpperCase() + m.substring(1),
+    name:
+      m === ""
+        ? "Home"
+        : m.substring(0, 1).toUpperCase() + m.substring(1).replaceAll("-", " "),
   }));
 
   let showItems = false;
