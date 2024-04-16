@@ -16,15 +16,15 @@
   if (browser) {
     const originalFetch = window.fetch;
     window.fetch = async (input: RequestInfo | URL, config?: RequestInit) => {
-      // request interceptor here
-      if (!config?.skipLoading) loading.set(true);
+      try {
+        if (!config?.skipLoading) loading.set(true);
 
-      const response = await originalFetch(input, config);
+        const response = await originalFetch(input, config);
 
-      // response interceptor here
-      if (!config?.skipLoading) loading.set(false);
-
-      return response;
+        return response;
+      } finally {
+        if (!config?.skipLoading) loading.set(false);
+      }
     };
   }
 </script>
