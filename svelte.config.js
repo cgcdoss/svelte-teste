@@ -21,7 +21,8 @@ const config = {
     // See https://kit.svelte.dev/docs/adapters for more information about adapters.
     adapter: adapter(),
     paths: {
-      base: process.env.NODE_ENV === 'production' ? '/svelte-teste' : '' // Para funcionar no Github Pages
+      // base: process.env.NODE_ENV === 'production' ? '/svelte-teste' : '' // Para funcionar no Github Pages
+      base: process.argv.includes('dev') ? '' : process.env.BASE_PATH // Para funcionar no Github Pages
     }
   },
 };
