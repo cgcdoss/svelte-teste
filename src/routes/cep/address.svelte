@@ -1,5 +1,14 @@
 <script lang="ts">
+  import { createEventDispatcher } from "svelte";
+
   export let address: TAddress | undefined;
+  const dispatcher = createEventDispatcher();
+
+  function dispatchCustomEvent() {
+    dispatcher("myEvent", {
+      uf: address?.uf,
+    });
+  }
 </script>
 
 {#if address}
@@ -25,4 +34,8 @@
       {address.complemento || "-"}
     </div>
   </div>
+
+  <button class="primary mt-4" on:click={dispatchCustomEvent}>
+    Disparar output event
+  </button>
 {/if}

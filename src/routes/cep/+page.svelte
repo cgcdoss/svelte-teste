@@ -56,6 +56,10 @@
       },
     };
   }
+
+  function listenerMyEvent(ev: CustomEvent<{ uf: string }>) {
+    alert(ev.detail.uf);
+  }
 </script>
 
 <svelte:head>
@@ -83,6 +87,6 @@
 
 {#if address}
   <div in:fly={flyOptions}>
-    <Address {address} />
+    <Address {address} on:myEvent={listenerMyEvent} />
   </div>
 {/if}
