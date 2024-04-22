@@ -41,10 +41,13 @@
     }
   }
 
-  function autoFocusCep(node: HTMLInputElement) {
+  function autoFocusCep(
+    node: HTMLInputElement,
+    { timeout }: { timeout: number }
+  ) {
     setTimeout(() => {
       node.focus();
-    });
+    }, timeout);
 
     return {
       destroy: () => {
@@ -75,7 +78,7 @@
   class="mt-1 rounded-md border-gray-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50"
   bind:value={cep}
   on:input={findCEP}
-  use:autoFocusCep
+  use:autoFocusCep={{ timeout: 10 }}
 />
 
 {#if address}
