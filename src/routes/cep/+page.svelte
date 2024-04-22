@@ -8,6 +8,10 @@
   let cep: number | undefined = undefined;
   let address: TAddress | undefined = undefined;
 
+  const flyOptions: FlyParams = {
+    y: 200,
+  };
+
   async function findCEP() {
     if (cep?.toString().length === 8) {
       error.set("");
@@ -37,9 +41,18 @@
     }
   }
 
-  const flyOptions: FlyParams = {
-    y: 200,
-  };
+  function autoFocusCep(node: HTMLInputElement) {
+    setTimeout(() => {
+      node.focus();
+    });
+
+    return {
+      destroy: () => {
+        // se estiver logando mais de uma vez é por conta do {#key...} no +layout.svelte na raíz da /routes
+        console.log("vai ser chamado quando a tela for destruída");
+      },
+    };
+  }
 </script>
 
 <svelte:head>
@@ -56,12 +69,13 @@
 
 <input
   type="text"
+  inputmode="numeric"
   placeholder="CEP"
+  maxlength="8"
   class="mt-1 rounded-md border-gray-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50"
   bind:value={cep}
   on:input={findCEP}
-  maxlength="8"
-  inputmode="numeric"
+  use:autoFocusCep
 />
 
 {#if address}
