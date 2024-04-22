@@ -2,36 +2,37 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="/favicon.png" />
+		<link rel="icon" href="/svelte-teste/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<link rel="modulepreload" href="/_app/immutable/entry/start.Ck1Bqm1v.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/entry.DEXGavGD.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/scheduler.DZULovi0.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/index.CLpADSa-.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/paths.Cw8C8le9.js">
-		<link rel="modulepreload" href="/_app/immutable/entry/app.G0ixDY_Y.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/preload-helper.D6kgxu3v.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/index.BbX9ERtF.js">
-		<link rel="modulepreload" href="/_app/env.js">
+		<link rel="modulepreload" href="/svelte-teste/_app/immutable/entry/start.DN5Y2GpH.js">
+		<link rel="modulepreload" href="/svelte-teste/_app/immutable/chunks/entry.0ROcTQRG.js">
+		<link rel="modulepreload" href="/svelte-teste/_app/immutable/chunks/scheduler.DZULovi0.js">
+		<link rel="modulepreload" href="/svelte-teste/_app/immutable/chunks/index.CLpADSa-.js">
+		<link rel="modulepreload" href="/svelte-teste/_app/immutable/chunks/paths.Bp6Pq0CG.js">
+		<link rel="modulepreload" href="/svelte-teste/_app/immutable/entry/app.mxPHFIMz.js">
+		<link rel="modulepreload" href="/svelte-teste/_app/immutable/chunks/preload-helper.D6kgxu3v.js">
+		<link rel="modulepreload" href="/svelte-teste/_app/immutable/chunks/index.BbX9ERtF.js">
+		<link rel="modulepreload" href="/svelte-teste/_app/env.js">
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
 			<script>
 				{
-					__sveltekit_1ltri1p = {
-						base: "",
+					__sveltekit_1kpirzr = {
+						base: "/svelte-teste",
+						assets: "/svelte-teste",
 						env: null
 					};
 
 					const element = document.currentScript.parentElement;
 
-					import("/_app/env.js").then(({ env }) => {
-						__sveltekit_1ltri1p.env = env;
+					import("/svelte-teste/_app/env.js").then(({ env }) => {
+						__sveltekit_1kpirzr.env = env;
 
 						Promise.all([
-							import("/_app/immutable/entry/start.Ck1Bqm1v.js"),
-							import("/_app/immutable/entry/app.G0ixDY_Y.js")
+							import("/svelte-teste/_app/immutable/entry/start.DN5Y2GpH.js"),
+							import("/svelte-teste/_app/immutable/entry/app.mxPHFIMz.js")
 						]).then(([kit, app]) => {
 							kit.start(app, element);
 						});
