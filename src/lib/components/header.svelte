@@ -18,11 +18,13 @@
     .replaceAll("/", "");
   const routes = pages.map((m) => ({
     path: m,
-    name:
-      m === ""
-        ? "Home"
-        : m.substring(0, 1).toUpperCase() + m.substring(1).replaceAll("-", " "),
+    name: m.substring(0, 1).toUpperCase() + m.substring(1).replaceAll("-", " "),
   }));
+
+  routes.unshift({
+    name: "Home",
+    path: "",
+  });
 
   let showItems = false;
   const height = spring(72, { stiffness: 0.1, damping: 0.27 });
