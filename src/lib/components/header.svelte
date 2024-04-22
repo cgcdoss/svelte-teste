@@ -4,7 +4,8 @@
   import { isMobile } from "$lib/store";
   import { spring } from "svelte/motion";
 
-  const pageSvelteFiles = import.meta.glob("../../routes/**/+page.svelte");
+  // usando apenas um * para não entrar nas subpastas
+  const pageSvelteFiles = import.meta.glob("../../routes/*/+page.svelte");
   const pages = Object.keys(pageSvelteFiles).map((item) =>
     item
       .replace("../../routes/", "")
