@@ -12,10 +12,6 @@
       .replace("+page.svelte", "")
       .replace("/", "")
   );
-
-  $: currentUrl = $page.url.pathname
-    .replace("/svelte-teste", "")
-    .replaceAll("/", "");
   const routes = pages.map((m) => ({
     path: m,
     name: m.substring(0, 1).toUpperCase() + m.substring(1).replaceAll("-", " "),
@@ -25,6 +21,14 @@
     name: "Home",
     path: "",
   });
+  routes.push({
+    name: "Rotas dinâmicas",
+    path: "rotas-dinamicas/" + Math.floor(Math.random() * 100),
+  });
+
+  $: currentUrl = $page.url.pathname
+    .replace("/svelte-teste", "")
+    .replaceAll("/", "");
 
   let showItems = false;
   const height = spring(72, { stiffness: 0.1, damping: 0.27 });
