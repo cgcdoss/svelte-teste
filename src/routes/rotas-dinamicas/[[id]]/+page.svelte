@@ -9,4 +9,7 @@
   Path param passado: {id}
 </h1>
 
-{env.PUBLIC_TESTE}
+<hr />
+
+<p class="mt-4">Usando $env/dynamic/public:</p>
+<p>{env.PUBLIC_TESTE}</p>
