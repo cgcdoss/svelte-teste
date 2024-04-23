@@ -9,7 +9,7 @@
   da pasta routes:
 </h1>
 
-<h1>{data.titleApplication}</h1>
+<h1 class="text-3xl">{data.titleApplication}</h1>
 
 <hr />
 
