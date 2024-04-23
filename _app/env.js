@@ -1,1 +1,1 @@
-export const env={"PUBLIC_TESTE":"OLA MUNDO"}
+export const env={"PUBLIC_TESTE":"OLA MUNDO, do env.prod"}
