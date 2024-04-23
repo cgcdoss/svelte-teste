@@ -3,6 +3,11 @@
   import { env } from "$env/dynamic/public";
 
   const id = $page.params.id;
+
+  // poderia alterar dessa forma
+  /* setTimeout(() => {
+    env.PUBLIC_TESTE = "teste";
+  }, 3000); */
 </script>
 
 <h1>
