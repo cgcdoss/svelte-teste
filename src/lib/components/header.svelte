@@ -31,7 +31,7 @@
   function ulHeight() {
     const initialHeight = 72;
     const gapColumn = 16;
-    const itemsHeight = routes.length * 46;
+    const itemsHeight = routes.length * 48;
     return itemsHeight + initialHeight + gapColumn;
   }
 
