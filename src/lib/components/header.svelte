@@ -16,15 +16,7 @@
     path: m,
     name: m.substring(0, 1).toUpperCase() + m.substring(1).replaceAll("-", " "),
   }));
-
-  routes.unshift({
-    name: "Home",
-    path: "",
-  });
-  routes.push({
-    name: "Rotas dinâmicas",
-    path: "rotas-dinamicas/" + Math.floor(Math.random() * 100),
-  });
+  addManuallySomeRoutes();
 
   $: currentUrl = $page.url.pathname
     .replace("/svelte-teste", "")
@@ -48,6 +40,21 @@
       if ($isMobile) {
         showItems = false;
       }
+    });
+  }
+
+  function addManuallySomeRoutes() {
+    routes.unshift({
+      name: "Home",
+      path: "",
+    });
+    routes.push({
+      name: "Rotas dinâmicas",
+      path: "rotas-dinamicas/" + Math.floor(Math.random() * 100),
+    });
+    routes.push({
+      name: "Agrupado",
+      path: "agrupado",
     });
   }
 </script>
