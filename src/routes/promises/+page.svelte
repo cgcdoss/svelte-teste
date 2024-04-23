@@ -1,8 +1,17 @@
 <script lang="ts">
+  import { http } from "$lib/http";
   import { onMount } from "svelte";
   import { fly } from "svelte/transition";
 
   let userPromise: Promise<Response>;
+  let userAxios:
+    | undefined
+    | {
+        results: {
+          picture: { medium: string };
+          name: { first: string; last: string };
+        }[];
+      };
 
   let user: {
     results: {
@@ -15,6 +24,7 @@
   onMount(() => {
     userPromise = getUser();
     getNewUserAsync();
+    getUserAxios();
   });
 
   function getUser(skipLoading = false) {
@@ -37,6 +47,19 @@
     } finally {
       loading = false;
     }
+  }
+
+  async function getUserAxios() {
+    userAxios = undefined;
+
+    userAxios = (
+      await http.get<{
+        results: {
+          picture: { medium: string };
+          name: { first: string; last: string };
+        }[];
+      }>("https://randomuser.me/api/")
+    ).data;
   }
 </script>
 
@@ -96,6 +119,25 @@
     <img src={user.results[0].picture.medium} alt="Usuario" />
     {user.results[0].name.first}
     {user.results[0].name.last}
+  </div>
+{/if}
+
+<hr />
+
+<h1 class="font-bold text-2xl my-4">Usando Axios:</h1>
+
+<button
+  class="bg-primary-500 text-white p-2 hover:bg-primary-700 mb-4"
+  on:click={getUserAxios}
+>
+  Novo usuário
+</button>
+
+{#if userAxios}
+  <div in:fly={{ y: -250 }}>
+    <img src={userAxios.results[0].picture.medium} alt="Usuario" />
+    {userAxios.results[0].name.first}
+    {userAxios.results[0].name.last}
   </div>
 {/if}
 
