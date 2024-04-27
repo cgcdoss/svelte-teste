@@ -1,10 +1,10 @@
 <script lang="ts">
   import { browser } from "$app/environment";
-  import { page } from "$app/stores";
+  import { navigating, page } from "$app/stores";
   import Error from "$lib/components/error.svelte";
   import Header from "$lib/components/header.svelte";
   import Loading from "$lib/components/loading.svelte";
-  import { loading } from "$lib/store";
+  import { error, loading } from "$lib/store";
   import { fly } from "svelte/transition";
   import "../app.pcss";
   import type { LayoutData } from "./$types";
@@ -26,6 +26,11 @@
         if (!config?.skipLoading) loading.set(false);
       }
     };
+  }
+
+  // Limpando erro ao mudar de rota
+  $: if ($navigating) {
+    error.set("");
   }
 </script>
 
