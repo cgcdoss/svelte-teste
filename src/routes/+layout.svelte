@@ -40,7 +40,7 @@
 
 <Header title={data.titleApplication} />
 <Error />
-<Loading />
+<Loading navigating={!!$navigating} />
 
 {#key $page.url.pathname}
   <main class="container mx-auto px-8 mt-6" in:fly={{ y: 200, delay: 200 }}>

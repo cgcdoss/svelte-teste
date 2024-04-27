@@ -1,8 +1,10 @@
 <script lang="ts">
   import { loading } from "$lib/store";
+
+  export let navigating = false;
 </script>
 
-{#if $loading}
+{#if $loading || navigating}
   <div
     class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black/30"
   >
