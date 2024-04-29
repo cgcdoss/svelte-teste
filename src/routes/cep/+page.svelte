@@ -78,7 +78,7 @@
   }
 
   function adicionarMascara(valor: string) {
-    return valor.replace(/\D+/, "").replace(/(\d+)(\d{3})$/g, "$1-$2");
+    return valor.replace(/\D+/, "").replace(/(\d{5})(\d+)$/g, "$1-$2");
   }
 </script>
 
