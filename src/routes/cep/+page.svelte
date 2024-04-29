@@ -5,7 +5,7 @@
   import Address from "./address.svelte";
 
   export let data: PageData; // Deveria ser apenas PageData, mas está dando erro
-  let cep: number | undefined = undefined;
+  let cep: string | undefined = undefined;
   let address: TAddress | undefined = undefined;
 
   const flyOptions: FlyParams = {
@@ -13,12 +13,14 @@
   };
 
   async function findCEP() {
-    if (cep?.toString().length === 8) {
+    if (cep?.length === 9) {
       error.set("");
       loading.set(true);
 
       try {
-        const resp = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const resp = await fetch(
+          `https://viacep.com.br/ws/${cep.replace("-", "")}/json/`
+        );
         const json = await resp.json();
 
         if (!resp.ok) {
@@ -60,6 +62,24 @@
   function listenerMyEvent(ev: CustomEvent<{ uf: string }>) {
     alert(ev.detail.uf);
   }
+
+  function cepMask(node: HTMLInputElement) {
+    const listener = () => {
+      node.value = adicionarMascara(node.value);
+    };
+
+    node.addEventListener("input", listener);
+
+    return {
+      destroy: () => {
+        removeEventListener("input", listener);
+      },
+    };
+  }
+
+  function adicionarMascara(valor: string) {
+    return valor.replace(/\D+/, "").replace(/(\d+)(\d{3})$/g, "$1-$2");
+  }
 </script>
 
 <svelte:head>
@@ -78,11 +98,12 @@
   type="text"
   inputmode="numeric"
   placeholder="CEP"
-  maxlength="8"
+  maxlength="9"
   class="mt-1 rounded-md border-gray-300 shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50"
   bind:value={cep}
   on:input={findCEP}
   use:autoFocusCep={{ timeout: 10 }}
+  use:cepMask
 />
 
 {#if address}
